@@ -162,6 +162,8 @@ def build_radare2():
     os.makedirs(LIBS_DIR, exist_ok=True)
 
     lib_install_dir = Path(PREFIX) / "bin" if sys.platform == "win32" else Path(PREFIX) / "lib"
+    if not os.path.exists(lib_install_dir):
+        lib_install_dir = Path(PREFIX) / "lib64"
     glob = {
         "linux" : "*.so*",
         "win32" : "*.dll",
