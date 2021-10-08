@@ -874,9 +874,10 @@ r_io_bank_del.argtypes = [ctypes.POINTER(struct_r_io_t), ctypes.c_uint32]
 r_io_bank_first = _libr_io.r_io_bank_first
 r_io_bank_first.restype = ctypes.c_uint32
 r_io_bank_first.argtypes = [ctypes.POINTER(struct_r_io_t)]
-r_io_bank_delete_map = _libr_io.r_io_bank_delete_map
-r_io_bank_delete_map.restype = None
-r_io_bank_delete_map.argtypes = [ctypes.POINTER(struct_r_io_t), ctypes.c_uint32, ctypes.c_uint32]
+# Centos 7 hack
+# r_io_bank_delete_map = _libr_io.r_io_bank_delete_map
+# r_io_bank_delete_map.restype = None
+# r_io_bank_delete_map.argtypes = [ctypes.POINTER(struct_r_io_t), ctypes.c_uint32, ctypes.c_uint32]
 r_io_bank_add = _libr_io.r_io_bank_add
 r_io_bank_add.restype = ctypes.c_bool
 r_io_bank_add.argtypes = [ctypes.POINTER(struct_r_io_t), ctypes.POINTER(struct_r_io_bank_t)]
@@ -1423,7 +1424,10 @@ __all__ = \
     'RIOReadAt', 'RIOSubMap', 'RIOSystem', 'RIOUndo', 'RIOUndoWrite',
     'RIOUndos', 'RIOV2P', 'RIOWriteAt', 'r_io_addr_is_mapped',
     'r_io_alprint', 'r_io_bank_add', 'r_io_bank_add_map',
-    'r_io_bank_del', 'r_io_bank_delete_map', 'r_io_bank_drain',
+    'r_io_bank_del', 
+    # CentOS7 Hack
+    # 'r_io_bank_delete_map', 
+    'r_io_bank_drain',
     'r_io_bank_fini', 'r_io_bank_first', 'r_io_bank_free',
     'r_io_bank_get', 'r_io_bank_get_by_id', 'r_io_bank_get_by_name',
     'r_io_bank_init', 'r_io_bank_locate', 'r_io_bank_map_add_top',
